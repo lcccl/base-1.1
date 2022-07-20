@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls type="groovy">
+    <sql id="TestTab.query" type="groovy">
+    <![CDATA[
+        select * from test_tab t where 1 =1
+        <% if (code) { %>
+            and t.code like #{code} || '%'
+        <% } %>
+        <% if (name) { %>
+            and t.name like '%' || #{name} || '%'
+        <% } %>
+        order by t.code
+    ]]>
+    </sql>
+
+    <sql id="TestTab.findByPage" type="freemarker">
+    <![CDATA[
+        select * from test_tab t where 1 = 1
+        <#if po.code?? && po.code != "">
+            and t.code like #{po.code} || '%'
+        </#if>
+        <#if po.name?? && po.name != "">
+            and t.name like '%' || #{po.name} || '%'
+        </#if>
+    ]]>
+    </sql>
+
+    <sql id="TestTab.testQuery1" type="groovy">
+    <![CDATA[
+        select * from test_tab t where 1 = 1
+        <% if (codes) { %>
+            and t.code in (
+            <% forEach(data: codes, separator: ",", handler: { it -> %>
+                #{it}
+            <% });%>
+            )
+        <% } %>
+    ]]>
+    </sql>
+
+    <sql id="TestTab.testQuery2" type="freemarker">
+        <![CDATA[
+        select * from test_tab t where 1 = 1
+        <#if codes??>
+            and t.code in (
+            <@forEach data="codes" item="it" separator=",">
+                #{it}
+            </@forEach>
+            )
+        </#if>
+        <#if extData.names??>
+            and (
+            <@forEach data=extData.names item="it" separator="or">
+                t.name like #{it} || '%'
+            </@forEach>
+            )
+        </#if>
+        <#if fields??>
+            and (
+            <@forEach data=fields item="it" separator="and">
+                t.name not like #{it.value} || '%'
+            </@forEach>
+            )
+        </#if>
+    ]]>
+    </sql>
+</sqls>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shiro>
+    <!-- 过滤器链配置 -->
+    <filterChain>
+        <filter name="authc" class="base.admin.security.ShiroAuthcFilter"/>
+        <filter name="roles" class="base.admin.security.ShiroRolesFilter"/>
+        <filter name="perms" class="base.admin.security.ShiroPermsFilter"/>
+    </filterChain>
+
+    <!-- 过滤链规则配置 -->
+    <filterChainDefinition>
+        /AdminLTE/**=anon
+        /bower_components/**=anon
+        /auth/login=anon
+        /auth/ajaxLogin=anon
+        /auth/logout=anon
+        /login.html=anon
+        /h2/**=anon
+
+        /**=authc
+    </filterChainDefinition>
+
+    <!-- 过滤链规则配置（从数据库读取配置）
+    <filterChainDefinition type="db">
+        select t.url, t.filter from shiro_filter_chain t;
+    </filterChainDefinition>
+    -->
+
+
+    <!-- 登录页面 -->
+    <loginUrl>/timeout.html</loginUrl>
+    <!-- 登录成功后的跳转页面 -->
+    <successUrl>/index.html</successUrl>
+    <!-- 未授权跳转页面 -->
+    <unauthorizedUrl>/403.html</unauthorizedUrl>
+
+    <!-- 密码加密策略 -->
+    <passwordEncryption>
+        <algorithmName>md5</algorithmName>
+        <hashIterations>2</hashIterations>
+        <toHex>true</toHex>
+    </passwordEncryption>
+</shiro>

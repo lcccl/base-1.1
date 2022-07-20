@@ -1,0 +1,41 @@
+<div class="box box-info">
+  <div class="box-header with-border">
+    <h3 class="box-title">测试页面</h3>
+  </div>
+  <!-- /.box-header -->
+  <!-- form start -->
+  <form class="form-horizontal">
+    <div class="box-body">
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">账号</label>
+
+        <div class="col-sm-10">
+          <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+        </div>
+      </div>
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+      <button class="btn btn-info loginBtn">登录</button>
+      <button class="btn btn-default pull-right">取消</button>
+    </div>
+    <!-- /.box-footer -->
+  </form>
+</div>
+
+<script type="text/javascript">
+$(function() {
+  var ctx = MsgBox.getCurrentBox() ? MsgBox.getCurrentBox().box : NavTab.getCurrentTab().$tabContent;
+
+  $(".loginBtn", ctx).on("click", function() {
+    MsgBox.info("登陆成功");
+  });
+});
+</script>

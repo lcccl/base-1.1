@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>错误</title>
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="bower_components/bootstrap-adminlte/css/AdminLTE.min.css">
+
+  <style>
+    .error-page .error-content.error-content-timeout {
+      margin-left: 0px;
+    }
+
+    .error-page .error-content.error-content-timeout h3 {
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .error-content-timeout p {
+      text-align: center;
+    }
+
+    .error-content-timeout #countdownLabel {
+      font-weight: bold;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body style="height: 150px;">
+  <div class="error-page">
+    <div class="error-content error-content-timeout">
+      <h3><i class="fa fa-warning text-red"></i> 无访问权限</h3>
+
+      <p>
+        用户未登录或会话超时，请重新登陆。请点击 <a href="login.html">返回</a> 进行登陆。
+      </p>
+      <p><label id="countdownLabel"></label>秒后自动跳转到登录页面</p>
+    </div>
+  </div>
+
+<script type="text/javascript">
+  var count = 5;
+  var countdown = function() {
+    if (count == 0) {
+      window.location.href = "login.html";
+      return;
+    }
+    document.getElementById("countdownLabel").innerHTML = count--;
+
+    setTimeout(countdown, 1000);
+  };
+
+  countdown();
+</script>  
+</body>
+</html>
+

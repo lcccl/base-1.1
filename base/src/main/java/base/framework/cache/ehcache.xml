@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
+
+    <!-- 默认缓存 -->
+    <defaultCache
+            maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="3600"
+            timeToLiveSeconds="3600"
+            overflowToDisk="false"
+            memoryStoreEvictionPolicy="LRU" />
+
+    <!-- 数据缓存 -->
+    <cache name="dataCache"
+           maxElementsInMemory="10000"
+           timeToIdleSeconds="900"
+           timeToLiveSeconds="900"
+           overflowToDisk="false"
+           memoryStoreEvictionPolicy="LRU" />
+</ehcache>

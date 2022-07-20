@@ -1,0 +1,15 @@
+{
+  "youbao": {
+    url: "http://propenty.youbaoplus.com/sinosigcms/DHSyncServlet",
+    proxy: {
+      host: "127.0.0.1",
+      port: 8080
+    }
+  },
+  "test": {
+    url: "http://localhost:8080/base/test/testReceivePacket"
+  },
+  "testParam": {
+    url: "http://localhost:8080/base/test/testReceiveProxyParam"
+  }
+}

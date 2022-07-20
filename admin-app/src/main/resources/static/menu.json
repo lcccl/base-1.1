@@ -1,0 +1,94 @@
+[
+  {
+    "title": "演示Demo",
+    "icon": "fa-th",
+    "children": [
+      {
+        "title": "代码管理",
+        "icon": "fa-book",
+        "action": "navtab",
+        "code": "codeTab",
+        "url": "pages/demo/test-code.html"
+      },
+      {
+        "title": "组件测试",
+        "icon": "fa-circle-o",
+        "action": "navtab",
+        "url": "pages/demo/test-component.html"
+      },
+      {
+        "title": "表单验证测试",
+        "icon": "fa-circle-o",
+        "action": "navtab",
+        "url": "pages/demo/test-validation.html"
+      },
+      {
+        "title": "多级菜单",
+        "icon": "fa-circle-o",
+        "children": [
+          {
+            "title": "多级菜单-二级1",
+            "icon": "fa-circle-o"
+          },
+          {
+            "title": "多级菜单-二级2",
+            "icon": "fa-circle-o",
+            "children": [
+              {
+                "title": "多级菜单-三级1",
+                "icon": "fa-circle-o"
+              },
+              {
+                "title": "多级菜单-三级2",
+                "icon": "fa-circle-o"
+              },
+              {
+                "title": "多级菜单-三级3",
+                "icon": "fa-circle-o",
+                "action": "navtab",
+                "code": "testLevel3",
+                "url": "pages/demo/test-level3.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "403页面测试",
+        "icon": "fa-circle-o",
+        "action": "navtab",
+        "code": "errorTab",
+        "url": "pages/demo/test-403.html"
+      },
+      {
+        "title": "嵌入iframe页面测试",
+        "icon": "fa-circle-o",
+        "action": "navtab-iframe",
+        "code": "iframeTab",
+        "url": "http://www.baidu.com"
+      }
+    ]
+  },
+  {
+    "title": "系统管理",
+    "icon": "fa-gear",
+    "children": [
+      {
+        "title": "用户管理",
+        "icon": "fa-circle-o"
+      },
+      {
+        "title": "权限管理",
+        "icon": "fa-circle-o"
+      },
+      {
+        "title": "菜单管理",
+        "icon": "fa-circle-o"
+      },
+      {
+        "title": "基础配置管理",
+        "icon": "fa-circle-o"
+      }
+    ]
+  }
+]
